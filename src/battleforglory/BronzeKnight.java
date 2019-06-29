@@ -130,8 +130,8 @@ public class BronzeKnight extends Character{
         double gravityAcceleration = 1.5;
         
         if (x <= 0) x = 1;
-        else if (x + sprite.getWidth() >= Juego.getWidth())
-            x = Juego.getWidth() - sprite.getWidth() - 2;
+        else if (x + sprite.getWidth() >= Game.getWidth())
+            x = Game.getWidth() - sprite.getWidth() - 2;
         
         x += (vx * direction);
         if (isBoosted){

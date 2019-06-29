@@ -14,7 +14,7 @@ public class Animation extends AnimationTimer {
     private Scene scene;
     private GraphicsContext drawer;
     private BlackKnight player1;
-    private BronzeKnight player2;
+    private BlackKnight player2;
     private int counter; 
     private final double gravityAcceleration = 1.0;
     
@@ -26,7 +26,7 @@ public class Animation extends AnimationTimer {
         counter = 0;
         
         this.player1 = new BlackKnight(30, 600, 1, 100, 3);
-        this.player2 = new BronzeKnight(1000, 600, -1, 100, 3);
+        this.player2 = new BlackKnight(1000, 600, -1, 100, 3);
         
         this.player1.setSpecificSprite(0);
         this.player2.setSpecificSprite(0);
@@ -57,7 +57,9 @@ public class Animation extends AnimationTimer {
     
     @Override
     public void handle(long l) {
-        drawer.clearRect(0, 0, Juego.getWidth(), Juego.getHeight());
+        drawer.clearRect(0, 0, Game.getWidth(), Game.getHeight());
+        drawer.setFill(Color.LIGHTBLUE);
+        drawer.fillRect(0, 0, Game.getWidth(), Game.getHeight());
         int code1 = 0, code2 = 0;
         
         if (player1.getSecuence() > 3) player1.setSecuence(0);
@@ -188,7 +190,7 @@ public class Animation extends AnimationTimer {
                 double p1Health = player1.getHealth().getValue();
                 code1 = 5;
                 player1.draw(drawer, code1);
-                player1.setHealth( p1Health - 0.35);
+                player1.setHealth( p1Health - 0.2);
                 
                 if (p1Health <= 66 && p1Health > 33)
                     player1.getHealth().setColor(Color.YELLOW);
