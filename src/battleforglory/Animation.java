@@ -14,7 +14,7 @@ public class Animation extends AnimationTimer {
     private Scene scene;
     private GraphicsContext drawer;
     private BlackKnight player1;
-    private BlackKnight player2;
+    private BronzeKnight player2;
     private int counter; 
     private final double gravityAcceleration = 1.0;
     
@@ -26,7 +26,7 @@ public class Animation extends AnimationTimer {
         counter = 0;
         
         this.player1 = new BlackKnight(30, 600, 1, 100, 3);
-        this.player2 = new BlackKnight(1000, 600, -1, 100, 3);
+        this.player2 = new BronzeKnight(1000, 600, -1, 100, 3);
         
         this.player1.setSpecificSprite(0);
         this.player2.setSpecificSprite(0);

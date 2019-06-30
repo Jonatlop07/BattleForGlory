@@ -14,101 +14,22 @@ public class BlackKnight extends Character {
     public static final int HURT = 5;
     public static final int DIE = 6;
     
+    String[] posiciones =  {"Quiet", "Walk", "Run", "Jump", "Atk", "Hurt", "Die"};
+    private Image spritesRight [][];
+    private Image spritesLeft [][];
     
-    private final Image spritesRight [][] = {
-        {
-            new Image(ruta + "QuietR0.png"),
-            new Image(ruta + "QuietR1.png"),
-            new Image(ruta + "QuietR2.png"),
-            new Image(ruta + "QuietR3.png")
-        }, 
-        {
-            new Image(ruta + "WalkR0.png"),
-            new Image(ruta + "WalkR1.png"),
-            new Image(ruta + "WalkR2.png"),
-            new Image(ruta + "WalkR3.png")
-        }, 
-        {
-            new Image(ruta + "RunR0.png"),
-            new Image(ruta + "RunR1.png"),
-            new Image(ruta + "RunR2.png"),
-            new Image(ruta + "RunR3.png")
-        }, 
-        {
-            new Image(ruta + "JumpR0.png"),
-            new Image(ruta + "JumpR1.png"),
-            new Image(ruta + "JumpR2.png"),
-            new Image(ruta + "JumpR3.png")
-        }, 
-        {
-            new Image(ruta + "AtkR0.png"),
-            new Image(ruta + "AtkR1.png"),
-            new Image(ruta + "AtkR2.png"),
-            new Image(ruta + "AtkR3.png")
-        },
-        {
-            new Image(ruta + "HurtR0.png"),
-            new Image(ruta + "HurtR1.png"),
-            new Image(ruta + "HurtR2.png"),
-            new Image(ruta + "HurtR3.png")
-        },
-        {
-            new Image(ruta + "DieR0.png"),
-            new Image(ruta + "DieR1.png"),
-            new Image(ruta + "DieR2.png"),
-            new Image(ruta + "DieR3.png")
-        }
-    };
-    
-    private final Image spritesLeft [][] = {
-        {
-            new Image(ruta + "QuietL0.png"),
-            new Image(ruta + "QuietL1.png"),
-            new Image(ruta + "QuietL2.png"),
-            new Image(ruta + "QuietL3.png")
-        }, 
-        {
-            new Image(ruta + "WalkL0.png"),
-            new Image(ruta + "WalkL1.png"),
-            new Image(ruta + "WalkL2.png"),
-            new Image(ruta + "WalkL3.png")
-        }, 
-        {
-            new Image(ruta + "RunL0.png"),
-            new Image(ruta + "RunL1.png"),
-            new Image(ruta + "RunL2.png"),
-            new Image(ruta + "RunL3.png")
-        }, 
-        {
-            new Image(ruta + "JumpL0.png"),
-            new Image(ruta + "JumpL1.png"),
-            new Image(ruta + "JumpL2.png"),
-            new Image(ruta + "JumpL3.png")
-        }, 
-        {
-            new Image(ruta + "AtkL0.png"),
-            new Image(ruta + "AtkL1.png"),
-            new Image(ruta + "AtkL2.png"),
-            new Image(ruta + "AtkL3.png")
-        },
-        {
-            new Image(ruta + "HurtL0.png"),
-            new Image(ruta + "HurtL1.png"),
-            new Image(ruta + "HurtL2.png"),
-            new Image(ruta + "HurtL3.png")
-        },
-        {
-            new Image(ruta + "DieL0.png"),
-            new Image(ruta + "DieL1.png"),
-            new Image(ruta + "DieL2.png"),
-            new Image(ruta + "DieL3.png")
-        }
-    };
-
     public BlackKnight(double x, double y, int direction, double health_value, int lifes) {
         super(x, y, direction, health_value, lifes);
+        spritesRight = new Image[7][4];
+        spritesLeft = new Image[7][4];
+        for (int i=0;i<7;++i){
+            for (int j=0;j<4;++j){
+                spritesRight[i][j]=new Image(ruta + posiciones[i]+"R"+j+".png");
+                spritesLeft[i][j]=new Image(ruta + posiciones[i]+"L"+j+".png");
+            }
+        }
     }
-
+    
     @Override
     public void draw(GraphicsContext drawer, int action) {
         if (this.direction <= 0){
