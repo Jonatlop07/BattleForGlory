@@ -65,8 +65,8 @@ public class Animation extends AnimationTimer {
         if (player1.getSecuence() > 3) player1.setSecuence(0);
         if (player2.getSecuence() > 3) player2.setSecuence(0);
         
-        player1.setVx(0);
-        player2.setVx(0);
+        player1.setVelocidadX(0);
+        player2.setVelocidadX(0);
         
         //Controles player 1
         if (pulsacionTeclado.contains("A")){
@@ -76,15 +76,15 @@ public class Animation extends AnimationTimer {
                 code1 = 2;
                 if (player1.getEnergy() > 0){
                     player1.setEnergy(player1.getEnergy() - 2);
-                    player1.setVx(4);
+                    player1.setVelocidadX(4);
                 }
             } else {
-                player1.setVx(2);
+                player1.setVelocidadX(2);
                 code1 = 1;
             }
             
             if (player1.isJumping()){
-                player1.setVx(6);
+                player1.setVelocidadX(6);
             }
         }
         
@@ -94,21 +94,21 @@ public class Animation extends AnimationTimer {
                 code1 = 2;
                 if (player1.getEnergy() > 0){
                     player1.setEnergy(player1.getEnergy() - 2);
-                    player1.setVx(4);
+                    player1.setVelocidadX(4);
                 }
             } else {
-                player1.setVx(2);
+                player1.setVelocidadX(2);
                 code1 = 1;
             }
             
             if (player1.isJumping()){
-                player1.setVx(6);
+                player1.setVelocidadX(6);
             }
         }
         
         if (pulsacionTeclado.contains("W")){
             if (!player1.isBoosted() && player1.getEnergy() > 20) {
-                player1.setVy(28);
+                player1.setVelocidadY(28);
                 player1.hasBoost(true); 
             }
             if (player1.getEnergy() <= 20){
@@ -125,15 +125,15 @@ public class Animation extends AnimationTimer {
                 code2 = 2;
                 if (player2.getEnergy() > 0){
                     player2.setEnergy(player2.getEnergy() - 2);
-                    player2.setVx(4);
+                    player2.setVelocidadX(4);
                 }
             } else {
-                player2.setVx(2);
+                player2.setVelocidadX(2);
                 code2 = 1;
             }
             
             if (player2.isJumping()){
-                player2.setVx(6);
+                player2.setVelocidadX(6);
             }
         }
         
@@ -144,21 +144,21 @@ public class Animation extends AnimationTimer {
                 code2 = 2;
                 if (player2.getEnergy() > 0){
                     player2.setEnergy(player2.getEnergy() - 2);
-                    player2.setVx(4);
+                    player2.setVelocidadX(4);
                 }
             } else {
-                player2.setVx(2);
+                player2.setVelocidadX(2);
                 code2 = 1;
             }
             
             if (player2.isJumping()){
-                player2.setVx(6);
+                player2.setVelocidadX(6);
             }
         }
         
         if (pulsacionTeclado.contains("UP")){
             if (!player2.isBoosted() && player2.getEnergy() > 20) {
-                player2.setVy(28);
+                player2.setVelocidadY(28);
                 player2.hasBoost(true); 
             }
             if (player2.getEnergy() <= 20){

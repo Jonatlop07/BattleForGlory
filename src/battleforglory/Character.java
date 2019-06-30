@@ -26,7 +26,25 @@ public abstract class Character extends Object {
     public Health getHealth() {
         return health;
     }
-
+    public void move() {
+        double gravityAcceleration = 1.5;
+        
+        if (posicionX <= 0) posicionX = 1;
+        else if (posicionX + sprite.getWidth() >= Game.getWidth())
+            posicionX = Game.getWidth() - sprite.getWidth() - 2;
+            
+        posicionX += (velocidadX * direction);
+        if (isBoosted){
+            velocidadY -= gravityAcceleration;
+            posicionY -= velocidadY;
+            energy -= 2;
+        }
+        if (posicionY >= 600){
+            posicionY = 600;
+            isBoosted = false;
+            velocidadY = 0;
+        }
+    }
     public void setHealth(double health) {
         this.health.setValue(health);
     }
@@ -68,7 +86,7 @@ public abstract class Character extends Object {
     }
     
     public boolean isJumping(){
-        if (this.y < 600) return true; 
+        if (this.posicionY < 600) return true; 
         else return false;
     }
     

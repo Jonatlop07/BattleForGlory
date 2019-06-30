@@ -5,50 +5,50 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public abstract class Object {
-    protected double x;
-    protected double y;
-    protected double vx;
-    protected double vy;
+    protected double posicionX;
+    protected double posicionY;
+    protected double velocidadX;
+    protected double velocidadY;
     
     protected Image sprite = null;
     
     public Object(double x, double y) {
-        this.x = x;
-        this.y  = y;
-        vx = 0;
-        vy = 0;
+        this.posicionX = x;
+        this.posicionY  = y;
+        velocidadX = 0;
+        velocidadY = 0;
     }
 
-    public double getX() {
-        return x;
+    public double getPosicionX() {
+        return posicionX;
     }
 
-    public void setX(double x) {
-        this.x = x;
+    public void setPosicionX(double x) {
+        this.posicionX = x;
     }
 
-    public double getY() {
-        return y;
+    public double getPosicionY() {
+        return posicionY;
     }
 
-    public void setY(double y) {
-        this.y = y;
+    public void setPosicionY(double y) {
+        this.posicionY = y;
     }
 
-    public double getVx() {
-        return vx;
+    public double getVelocidadX() {
+        return velocidadX;
     }
 
-    public void setVx(double vx) {
-        this.vx = vx;
+    public void setVelocidadX(double vx) {
+        this.velocidadX = vx;
     }
 
-    public double getVy() {
-        return vy;
+    public double getVelocidadY() {
+        return velocidadY;
     }
 
-    public void setVy(double vy) {
-        this.vy = vy;
+    public void setVelocidadY(double vy) {
+        this.velocidadY = vy;
     }
     
     public Image getSprite() {

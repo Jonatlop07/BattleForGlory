@@ -35,48 +35,29 @@ public class BlackKnight extends Character {
         if (this.direction <= 0){
             this.sprite = spritesLeft[action][this.getSecuence()];
             if (action == 4)
-                drawer.drawImage(sprite, this.x - (sprite.getWidth() / 2), this.y - sprite.getHeight());
-            else drawer.drawImage(sprite, this.x, this.y - sprite.getHeight());
+                drawer.drawImage(sprite, this.posicionX - (sprite.getWidth() / 2), this.posicionY - sprite.getHeight());
+            else drawer.drawImage(sprite, this.posicionX, this.posicionY - sprite.getHeight());
             
         } else if (this.direction >= 0){
             this.sprite = spritesRight[action][this.getSecuence()];
-            drawer.drawImage(sprite, this.x, this.y - sprite.getHeight());
+            drawer.drawImage(sprite, this.posicionX, this.posicionY - sprite.getHeight());
         }
     }
 
-    @Override
-    public void move() {
-        double gravityAcceleration = 1.5;
-        
-        if (x <= 0) x = 1;
-        else if (x + sprite.getWidth() >= Game.getWidth())
-            x = Game.getWidth() - sprite.getWidth() - 2;
-            
-        x += (vx * direction);
-        if (isBoosted){
-            vy -= gravityAcceleration;
-            y -= vy;
-            energy -= 2;
-        }
-        if (y >= 600){
-            y = 600;
-            isBoosted = false;
-            vy = 0;
-        }
-    }
+    
     
     @Override
     public boolean isCollidingCharacter(Character character){
         boolean isColliding = false; 
-        double characterRightLimit = character.getX() + character.getSprite().getWidth();
+        double characterRightLimit = character.getPosicionX() + character.getSprite().getWidth();
         
         if (this.direction == 1)
-            return (this.x + this.sprite.getWidth() - 100 >= character.getX() && 
-                    this.x + this.sprite.getWidth() - 50 <= characterRightLimit &&
-                    this.y < character.getY() + ( 2 * character.sprite.getHeight() / 3));
+            return (this.posicionX + this.sprite.getWidth() - 100 >= character.getPosicionX() && 
+                    this.posicionX + this.sprite.getWidth() - 50 <= characterRightLimit &&
+                    this.posicionY < character.getPosicionY() + ( 2 * character.sprite.getHeight() / 3));
         else if (this.direction == -1)
-            return (this.x - 30 <= characterRightLimit && this.x >= character.getX() &&
-                    this.y < character.getY() + ( 2 * character.sprite.getHeight() / 3));
+            return (this.posicionX - 30 <= characterRightLimit && this.posicionX >= character.getPosicionX() &&
+                    this.posicionY < character.getPosicionY() + ( 2 * character.sprite.getHeight() / 3));
         
         return isColliding;
     }
