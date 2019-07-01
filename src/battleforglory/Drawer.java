@@ -14,7 +14,7 @@ public class Drawer {
     }
     
     public void dibujar () {
-        lapiz.clearRect(0, 0, Juego.getWidth(), Juego.getHeight());
+        lapiz.clearRect(0, 0, Juego.getAncho(), Juego.getAlto());
         //lapiz.drawImage(escenario.getFondo(), 0, 0);
         
         for (Personaje jugador : jugadores)
