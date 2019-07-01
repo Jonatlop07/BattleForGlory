@@ -4,7 +4,7 @@ package battleforglory;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public class BronzeKnight extends Character{
+public class BronzeKnight extends Personaje{
     private String ruta = "file:src//battleforglory//image//bronze_knight_re//brk";
     public static final int QUIET = 0;
     public static final int WALK = 1;
@@ -16,55 +16,23 @@ public class BronzeKnight extends Character{
     
     
     String[] posiciones =  {"Quiet", "Walk", "Run", "Jump", "Atk", "Hurt", "Die"};
-    private Image spritesRight [][];
-    private Image spritesLeft [][];
+    private Image spritesDerecha [][];
+    private Image spritesIzquierda [][];
     
-    public BronzeKnight(double x, double y, int direction, double health_value, int lifes) {
-        super(x, y, direction, health_value, lifes);
-        spritesRight = new Image[7][4];
-        spritesLeft = new Image[7][4];
+    public BronzeKnight(double x, double y) {
+        super(x, y);
+        spritesDerecha = new Image[7][4];
+        spritesIzquierda = new Image[7][4];
         for (int i=0;i<7;++i){
             for (int j=0;j<4;++j){
-                spritesRight[i][j]=new Image(ruta + posiciones[i]+"R"+j+".png");
-                spritesLeft[i][j]=new Image(ruta + posiciones[i]+"L"+j+".png");
+                spritesDerecha[i][j]=new Image(ruta + posiciones[i]+"R"+j+".png");
+                spritesIzquierda[i][j]=new Image(ruta + posiciones[i]+"L"+j+".png");
             }
         }
     }
 
     @Override
-    public void draw(GraphicsContext drawer, int action) {
-        if (this.direction < 0){
-            this.sprite = spritesLeft[action][this.getSecuence()];
-            if (action == 4)
-                drawer.drawImage(sprite, this.posicionX - (sprite.getWidth() / 4), this.posicionY - sprite.getHeight() + 15);
-            else drawer.drawImage(sprite, this.posicionX, this.posicionY - sprite.getHeight());
-            
-        } else if (this.direction > 0){
-            this.sprite = spritesRight[action][this.getSecuence()];
-            if(action == 4)
-                drawer.drawImage(sprite, this.posicionX, this.posicionY - sprite.getHeight() + 15);
-            else drawer.drawImage(sprite, this.posicionX, this.posicionY - sprite.getHeight());
-        }
-    }
-
-    
-    
-    public boolean isCollidingCharacter(Character character){
-        boolean isColliding = false; 
-        double characterRightLimit = character.getPosicionX() + character.getSprite().getWidth();
-        
-        if (this.direction == 1)
-            return (this.posicionX + this.sprite.getWidth() >= character.getPosicionX() && 
-                    this.posicionX + this.sprite.getWidth() <= characterRightLimit &&
-                    this.posicionY < character.getPosicionY() + ( 2 * character.sprite.getHeight() / 3));
-         else if (this.direction == -1)
-            return (this.posicionX <= characterRightLimit && this.posicionX >= character.getPosicionX() &&
-                    this.posicionY < character.getPosicionY() + ( 2 * character.sprite.getHeight() / 3));
-        
-        return isColliding;
-    }
-    
-    public void setSpecificSprite(int action){
-        sprite = (direction > 0) ? spritesRight[action][secuence]:spritesLeft[action][secuence];
+    public void dibujar(GraphicsContext lapiz) {
+        lapiz.drawImage(sprite, posicionX, posicionY);
     }
 }

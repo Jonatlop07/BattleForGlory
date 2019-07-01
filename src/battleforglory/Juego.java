@@ -9,7 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class Game extends Application{
+public class Juego extends Application{
 
     private static final int width = 1400;
     private static final int height = 700;

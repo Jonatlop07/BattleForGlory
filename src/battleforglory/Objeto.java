@@ -4,7 +4,7 @@ package battleforglory;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public abstract class Object {
+public abstract class Objeto {
     protected double posicionX;
     protected double posicionY;
     protected double velocidadX;
@@ -12,7 +12,7 @@ public abstract class Object {
     
     protected Image sprite = null;
     
-    public Object(double x, double y) {
+    public Objeto(double x, double y) {
         this.posicionX = x;
         this.posicionY  = y;
         velocidadX = 0;
@@ -59,6 +59,6 @@ public abstract class Object {
         this.sprite = sprite;
     }
 
-    public abstract void draw(GraphicsContext drawer, int action);
-    public abstract void move();
+    public abstract void dibujar(GraphicsContext lapiz);
+    public abstract void mover();
 }
