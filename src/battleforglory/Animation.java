@@ -1,6 +1,7 @@
 package battleforglory;
 
 import java.util.ArrayList;
+import java.util.Vector;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -13,8 +14,7 @@ public class Animation extends AnimationTimer {
     private Scene escena;
     private Drawer drawer;
     private GraphicsContext lapiz;
-    private BlackKnight jugador1;
-    private BronzeKnight jugador2; 
+    private Vector<Personaje> jugadores;
     
     private ArrayList<String> pulsacionTeclado = null;
     private KeyboardInput keyboardInput;
@@ -23,8 +23,13 @@ public class Animation extends AnimationTimer {
         this.lapiz = lapiz;
         this.drawer = new Drawer(this.lapiz);
         
-        this.jugador1 = new BlackKnight(30, 400);
-        this.jugador2 = new BronzeKnight(1000, 400);
+        this.jugadores = new Vector<Personaje>();
+        Personaje jugador1 = new BlackKnight(30, 400);
+        Personaje jugador2 = new BronzeKnight(1000, 400);
+        jugador1.setSprite(new Image("file:src//battleforglory//image//black_knight_re//bkQuietR1.png"));
+        jugador2.setSprite(new Image("file:src//battleforglory//image//bronze_knight_re//brkQuietR1.png"));
+        jugadores.add(jugador1);
+        jugadores.add(jugador2);
         
         pulsacionTeclado = new ArrayList<>();
         
@@ -53,12 +58,7 @@ public class Animation extends AnimationTimer {
     
     @Override
     public void handle(long l) {
-        jugador1.setSprite(new Image("file:src//battleforglory//image//black_knight_re//bkQuietR1.png"));
-        jugador2.setSprite(new Image("file:src//battleforglory//image//bronze_knight_re//brkQuietR1.png"));
-        
-        drawer.setJugador1(jugador1);
-        drawer.setJugador2(jugador2);
-        
+        drawer.setJugadores(this.jugadores);
         drawer.dibujar();
         
         //Manages input by keyboard
@@ -66,7 +66,6 @@ public class Animation extends AnimationTimer {
         int code1 = keyboardInput.getCodigo1();
         int code2 = keyboardInput.getCodigo2();
         
-        jugador1.mover();
-        jugador2.mover();
+        for (Personaje jugador : jugadores) jugador.mover();
     }
 }
