@@ -59,7 +59,7 @@ public abstract class Personaje extends Objeto {
         }
         if (Math.abs(impactoY)>0.02){
             this.fuerzaY=(impactoY/Math.abs(impactoY))*masa*gravedad;
-            if (saltando){
+            if (saltando  && impactoY<0){
                 this.fuerzaY-=masa*gravedad*40;
             }
             this.actualizarPorColisionY();
