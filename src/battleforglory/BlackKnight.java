@@ -18,8 +18,8 @@ public class BlackKnight extends Personaje {
     private Image spritesDerecha [][];
     private Image spritesIzquierda [][];
     
-    public BlackKnight(double x, double y) {
-        super(x, y);
+    public BlackKnight(Ubicacion ubicacion) {
+        super(ubicacion);
         spritesDerecha = new Image[7][4];
         spritesIzquierda = new Image[7][4];
         for (int i=0;i<7;++i){

@@ -15,6 +15,8 @@ public class Animation extends AnimationTimer {
     private Drawer drawer;
     private GraphicsContext lapiz;
     private Vector<Personaje> jugadores;
+    private Escenario escenario;
+    
     
     private ArrayList<String> pulsacionTeclado = null;
     private KeyboardInput keyboardInput;
@@ -24,10 +26,15 @@ public class Animation extends AnimationTimer {
         this.drawer = new Drawer(this.lapiz);
         
         this.jugadores = new Vector<Personaje>();
-        Personaje jugador1 = new BlackKnight(30, 400);
-        Personaje jugador2 = new BronzeKnight(1000, 400);
+        Personaje jugador1 = new BlackKnight(new Ubicacion (30, 200,100,130));
+        Personaje jugador2 = new BronzeKnight(new Ubicacion (1000, 200,100,130));
         jugador1.setSprite(new Image("file:src//battleforglory//image//black_knight_re//bkQuietR1.png"));
         jugador2.setSprite(new Image("file:src//battleforglory//image//bronze_knight_re//brkQuietR1.png"));
+        ElementoMapa piso = new ElementoMapa (new Ubicacion(0,600,2000,1000));
+        escenario = new Escenario();
+        escenario.anadirElemento(piso);
+        
+        
         jugadores.add(jugador1);
         jugadores.add(jugador2);
         
@@ -59,6 +66,7 @@ public class Animation extends AnimationTimer {
     @Override
     public void handle(long l) {
         drawer.setJugadores(this.jugadores);
+        drawer.setEscenario(escenario);
         drawer.dibujar();
         
         //Manages input by keyboard

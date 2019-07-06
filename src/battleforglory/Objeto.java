@@ -1,44 +1,34 @@
 
 package battleforglory;
 
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.SVGPath;
+import javafx.scene.shape.Shape;
 
 public abstract class Objeto {
-    protected double posicionX;
-    protected double posicionY;
-    protected double velocidadX;
-    protected double velocidadY;
+    protected Ubicacion ubicacion;
+    protected double velocidadX, velocidadY;
+    
     
     protected Image sprite = null;
     
-    public Objeto(double x, double y) {
-        this.posicionX = x;
-        this.posicionY  = y;
-        velocidadX = 0;
-        velocidadY = 0;
-    }
-
-    public double getPosicionX() {
-        return posicionX;
-    }
-
-    public void setPosicionX(double x) {
-        this.posicionX = x;
-    }
-
-    public double getPosicionY() {
-        return posicionY;
-    }
-
-    public void setPosicionY(double y) {
-        this.posicionY = y;
+    public Objeto(Ubicacion ubicacion) {
+        this.ubicacion= ubicacion;
     }
 
     public double getVelocidadX() {
         return velocidadX;
     }
 
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
+    
+    
+    
     public void setVelocidadX(double vx) {
         this.velocidadX = vx;
     }

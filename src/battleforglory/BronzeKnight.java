@@ -19,8 +19,8 @@ public class BronzeKnight extends Personaje{
     private Image spritesDerecha [][];
     private Image spritesIzquierda [][];
     
-    public BronzeKnight(double x, double y) {
-        super(x, y);
+    public BronzeKnight(Ubicacion ubicacion) {
+        super(ubicacion);
         spritesDerecha = new Image[7][4];
         spritesIzquierda = new Image[7][4];
         for (int i=0;i<7;++i){
@@ -33,6 +33,5 @@ public class BronzeKnight extends Personaje{
 
     @Override
     public void dibujar(GraphicsContext lapiz) {
-        lapiz.drawImage(sprite, posicionX, posicionY);
     }
 }

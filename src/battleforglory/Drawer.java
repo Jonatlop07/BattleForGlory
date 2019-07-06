@@ -2,6 +2,7 @@ package battleforglory;
 
 import java.util.Vector;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
 public class Drawer {
     private GraphicsContext lapiz;
@@ -17,8 +18,14 @@ public class Drawer {
         lapiz.clearRect(0, 0, Juego.getAncho(), Juego.getAlto());
         //lapiz.drawImage(escenario.getFondo(), 0, 0);
         
-        for (Personaje jugador : jugadores)
-            lapiz.drawImage(jugador.getSprite(), jugador.getPosicionX(), jugador.getPosicionY());
+        for (Personaje jugador : jugadores){
+            //para visualizar el hitbox
+            lapiz.setFill(Color.BLACK);
+            lapiz.fillRect(jugador.getUbicacion().getPosicionX(), jugador.getUbicacion().getPosicionY(), jugador.getUbicacion().getAncho(), jugador.getUbicacion().getAlto());
+            lapiz.drawImage(jugador.getSprite(), jugador.getUbicacion().getPosicionX(), jugador.getUbicacion().getPosicionY());
+        }
+        escenario.dibujar(lapiz);
+            
         
     }
     
@@ -26,7 +33,8 @@ public class Drawer {
         this.jugadores = jugadores;
     }
     
-    public void setEscenario(String ruta){
-        escenario = new Escenario(ruta);
+    
+    public void setEscenario(Escenario escenario){
+        this.escenario = escenario;
     }
 }
