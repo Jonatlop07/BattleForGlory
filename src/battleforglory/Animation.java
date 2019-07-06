@@ -65,15 +65,20 @@ public class Animation extends AnimationTimer {
     
     @Override
     public void handle(long l) {
+        for (Personaje jugador : jugadores){
+            jugador.mover(escenario);
+        }
         drawer.setJugadores(this.jugadores);
         drawer.setEscenario(escenario);
         drawer.dibujar();
+        
+        
         
         //Manages input by keyboard
         keyboardInput.gestionarEntrada();
         int code1 = keyboardInput.getCodigo1();
         int code2 = keyboardInput.getCodigo2();
         
-        for (Personaje jugador : jugadores) jugador.mover();
+        
     }
 }

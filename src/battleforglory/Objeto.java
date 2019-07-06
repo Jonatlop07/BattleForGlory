@@ -10,7 +10,6 @@ import javafx.scene.shape.Shape;
 
 public abstract class Objeto {
     protected Ubicacion ubicacion;
-    protected double velocidadX, velocidadY;
     
     
     protected Image sprite = null;
@@ -18,10 +17,9 @@ public abstract class Objeto {
     public Objeto(Ubicacion ubicacion) {
         this.ubicacion= ubicacion;
     }
-
-    public double getVelocidadX() {
-        return velocidadX;
-    }
+    
+    
+    
 
     public Ubicacion getUbicacion() {
         return ubicacion;
@@ -29,17 +27,6 @@ public abstract class Objeto {
     
     
     
-    public void setVelocidadX(double vx) {
-        this.velocidadX = vx;
-    }
-
-    public double getVelocidadY() {
-        return velocidadY;
-    }
-
-    public void setVelocidadY(double vy) {
-        this.velocidadY = vy;
-    }
     
     public Image getSprite() {
         return sprite;
@@ -50,5 +37,4 @@ public abstract class Objeto {
     }
 
     public abstract void dibujar(GraphicsContext lapiz);
-    public abstract void mover();
 }

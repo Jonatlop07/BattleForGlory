@@ -25,9 +25,6 @@ public class ElementoMapa extends Objeto {
                 , this.ubicacion.getAncho(), this.ubicacion.getAlto());
     }
 
-    @Override
-    public void mover() {
-        return;
-    }
+    
     
 }

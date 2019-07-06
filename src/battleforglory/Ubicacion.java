@@ -26,6 +26,7 @@ public class Ubicacion {
     }
     public boolean colisionaCon(Ubicacion objeto){
         Shape inter = SVGPath.intersect(objeto.getHitbox(), this.getHitbox());
+        System.out.println(inter.getLayoutBounds().getWidth());
         return inter.getLayoutBounds().getWidth() !=-1;
     }
 
@@ -33,13 +34,16 @@ public class Ubicacion {
         return hitbox;
     }
     
-    
+    private void updateHitox(){
+         hitbox= new Rectangle(posicionX, posicionY, ancho, alto);
+    }
     public double getPosicionX() {
         return posicionX;
     }
 
     public void setPosicionX(double posicionX) {
         this.posicionX = posicionX;
+        this.updateHitox();
     }
 
     public double getPosicionY() {
@@ -48,6 +52,7 @@ public class Ubicacion {
 
     public void setPosicionY(double posicionY) {
         this.posicionY = posicionY;
+        this.updateHitox();
     }
 
     public double getAncho() {

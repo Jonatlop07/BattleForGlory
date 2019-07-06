@@ -34,4 +34,7 @@ public class BlackKnight extends Personaje {
     public void dibujar(GraphicsContext lapiz) {
         
     }
+
+
+    
 }

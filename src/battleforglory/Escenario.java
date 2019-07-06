@@ -22,6 +22,13 @@ public class Escenario {
             elemento.dibujar(lapiz);
         }
     }
+
+    public Vector<ElementoMapa> getMapa() {
+        return mapa;
+    }
+    
+    
+    
     public Image getFondo(){
         return fondo;
     }
