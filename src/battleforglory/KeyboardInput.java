@@ -24,15 +24,18 @@ public class KeyboardInput {
         codigo1=0; codigo2=0;
         //Controles jugador 1
         if (pulsacionTeclado.contains("A")){
-            
+            jugador1.correrIzquierda();
         }
         
         if (pulsacionTeclado.contains("D")){
-            
+            jugador1.correrDerecha();
+        }
+        if (!pulsacionTeclado.contains("D") && !pulsacionTeclado.contains("A")){
+            jugador1.dejarDeCorrer();
         }
         
         if (pulsacionTeclado.contains("W")){
-            
+            jugador1.saltar();
         }
         
         if (pulsacionTeclado.contains("ENTER")){

@@ -26,10 +26,36 @@ public class Ubicacion {
     }
     public boolean colisionaCon(Ubicacion objeto){
         Shape inter = SVGPath.intersect(objeto.getHitbox(), this.getHitbox());
-        System.out.println(inter.getLayoutBounds().getWidth());
         return inter.getLayoutBounds().getWidth() !=-1;
     }
-
+    
+    public double colisionY(Ubicacion objeto){
+        Rectangle arriba = new Rectangle (posicionX, posicionY, ancho, 1);
+        Rectangle abajo = new Rectangle (posicionX, posicionY+alto-1, ancho, 1);
+        Shape inter_abajo = SVGPath.intersect(objeto.getHitbox(), abajo);
+        Shape inter_arriba = SVGPath.intersect(objeto.getHitbox(), arriba);
+        double ans=1;
+        if (inter_arriba.getLayoutBounds().getWidth()>inter_abajo.getLayoutBounds().getWidth()){
+            ans= inter_arriba.getLayoutBounds().getWidth();
+        }else{
+            ans = -inter_abajo.getLayoutBounds().getWidth();
+        }
+        return ans/ancho;
+    }
+    public double colisionX(Ubicacion objeto){
+        Rectangle izquierda = new Rectangle (posicionX, posicionY, 1, alto);
+        Rectangle derecha = new Rectangle (posicionX+ancho-1, posicionY, 1, alto);
+        Shape inter_izquierda = SVGPath.intersect(objeto.getHitbox(), izquierda);
+        Shape inter_derecha = SVGPath.intersect(objeto.getHitbox(), derecha);
+        double ans=1;
+        if (inter_derecha.getLayoutBounds().getWidth()>inter_izquierda.getLayoutBounds().getWidth()){
+            ans= -inter_derecha.getLayoutBounds().getHeight();
+        }else{
+            ans = inter_izquierda.getLayoutBounds().getHeight();
+        }
+        return ans/alto;
+    }
+    
     public Rectangle getHitbox() {
         return hitbox;
     }

@@ -31,9 +31,12 @@ public class Animation extends AnimationTimer {
         jugador1.setSprite(new Image("file:src//battleforglory//image//black_knight_re//bkQuietR1.png"));
         jugador2.setSprite(new Image("file:src//battleforglory//image//bronze_knight_re//brkQuietR1.png"));
         ElementoMapa piso = new ElementoMapa (new Ubicacion(0,600,2000,1000));
+        ElementoMapa obstaculo = new ElementoMapa (new Ubicacion(500,500,100,50));
+        ElementoMapa obstaculo2 = new ElementoMapa (new Ubicacion(700,400,100,50));
         escenario = new Escenario();
         escenario.anadirElemento(piso);
-        
+        escenario.anadirElemento(obstaculo);
+        escenario.anadirElemento(obstaculo2);
         
         jugadores.add(jugador1);
         jugadores.add(jugador2);
