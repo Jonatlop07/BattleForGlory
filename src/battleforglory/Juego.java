@@ -9,8 +9,8 @@ import javafx.stage.Stage;
 
 public class Juego extends Application{
 
-    private static final int ancho = 1400;
-    private static final int alto = 700;
+    private static final int ancho = 1913;
+    private static final int alto = 876;
     
     public static void main(String[] args) {
         Application.launch(args);

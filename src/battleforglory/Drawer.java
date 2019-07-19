@@ -16,12 +16,12 @@ public class Drawer {
     
     public void dibujar () {
         lapiz.clearRect(0, 0, Juego.getAncho(), Juego.getAlto());
-        //lapiz.drawImage(escenario.getFondo(), 0, 0);
+        lapiz.drawImage(escenario.getFondo(), 0, 0);
         escenario.dibujar(lapiz);
         
         for (Personaje jugador : jugadores){
             //para visualizar el hitbox
-            lapiz.setFill(Color.BLACK);
+            lapiz.setFill(Color.AQUAMARINE);
             lapiz.fillRect(jugador.getUbicacion().getPosicionX(), jugador.getUbicacion().getPosicionY(), jugador.getUbicacion().getAncho(), jugador.getUbicacion().getAlto());
             lapiz.drawImage(jugador.getSprite(), jugador.getUbicacion().getPosicionX(), jugador.getUbicacion().getPosicionY());
         }

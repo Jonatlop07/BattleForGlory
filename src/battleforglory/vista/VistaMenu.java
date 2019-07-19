@@ -64,7 +64,7 @@ public class VistaMenu {
         layoutMenu.getChildren().add(btnAjustes);
         layoutMenu.getChildren().add(btnCreditos);
         
-        escena = new Scene(layoutMenu, Juego.getAncho(), Juego.getAlto());
+        escena = new Scene(layoutMenu, 1400,700);
         
         DropShadow shadow = new DropShadow();
         btnJugar.addEventHandler(MouseEvent.MOUSE_ENTERED, 

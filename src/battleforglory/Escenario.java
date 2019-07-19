@@ -6,11 +6,13 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class Escenario {
-    private Image fondo = null;
+    private Image fondo ;
     Vector<ElementoMapa> mapa;
+    
     
     public Escenario(){
         mapa = new Vector<>();
+        this.fondo= new Image("file:src//battleforglory//image//scenario.png");
     }
     
     public void anadirElemento(ElementoMapa elemento){

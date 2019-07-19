@@ -1,4 +1,3 @@
-
 package battleforglory;
 
 import javafx.scene.canvas.GraphicsContext;

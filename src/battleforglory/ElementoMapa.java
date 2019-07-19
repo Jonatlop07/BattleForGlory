@@ -6,6 +6,7 @@
 package battleforglory;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 /**
@@ -20,11 +21,11 @@ public class ElementoMapa extends Objeto {
 
     @Override
     public void dibujar(GraphicsContext lapiz) {
-        lapiz.setFill(Color.AQUA);
+        
+        lapiz.setFill(Color.RED);
+        
         lapiz.fillRect(this.ubicacion.getPosicionX(), this.ubicacion.getPosicionY()
-                , this.ubicacion.getAncho(), this.ubicacion.getAlto());
-    }
-
-    
-    
+                ,this.ubicacion.getAncho(), this.ubicacion.getAlto());
+        lapiz.drawImage(this.sprite, this.ubicacion.getPosicionX(),this.ubicacion.getPosicionY());
+    } 
 }

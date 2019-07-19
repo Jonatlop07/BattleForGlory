@@ -12,6 +12,7 @@ import javafx.scene.input.KeyEvent;
 public class Animation extends AnimationTimer {
     
     private Scene escena;
+    private Image IMGobstaculo = new Image("file:src//battleforglory//image//obstaculo.png"); 
     private Drawer drawer;
     private GraphicsContext lapiz;
     private Vector<Personaje> jugadores;
@@ -30,10 +31,21 @@ public class Animation extends AnimationTimer {
         Personaje jugador2 = new BronzeKnight(new Ubicacion (1000, 200,100,130));
         jugador1.setSprite(new Image("file:src//battleforglory//image//black_knight_re//bkQuietR1.png"));
         jugador2.setSprite(new Image("file:src//battleforglory//image//bronze_knight_re//brkQuietR1.png"));
-        ElementoMapa piso = new ElementoMapa (new Ubicacion(0,600,2000,1000));
-        ElementoMapa obstaculo = new ElementoMapa (new Ubicacion(500,500,100,50));
-        ElementoMapa obstaculo2 = new ElementoMapa (new Ubicacion(700,400,100,50));
+        //limites
+        ElementoMapa piso = new ElementoMapa (new Ubicacion(0,870,2000,50));
+        ElementoMapa limiteIzq = new ElementoMapa(new Ubicacion(0,0,10,2000));
+        ElementoMapa limiteDer = new ElementoMapa(new Ubicacion(1908,0,50,2000));
+        ElementoMapa limiteSup = new ElementoMapa(new Ubicacion(0,0,2000,10));
+        //plataformas
+        ElementoMapa obstaculo = new ElementoMapa (new Ubicacion(500,700,100,50));
+        obstaculo.setSprite(IMGobstaculo);
+        ElementoMapa obstaculo2 = new ElementoMapa (new Ubicacion(700,800,100,50));
+        obstaculo2.setSprite(IMGobstaculo);
         escenario = new Escenario();
+        escenario.anadirElemento(limiteIzq);
+        escenario.anadirElemento(limiteDer);
+        escenario.anadirElemento(limiteSup);
+        
         escenario.anadirElemento(piso);
         escenario.anadirElemento(obstaculo);
         escenario.anadirElemento(obstaculo2);
