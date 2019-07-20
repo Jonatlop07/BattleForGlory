@@ -17,16 +17,10 @@ public abstract class Objeto {
     public Objeto(Ubicacion ubicacion) {
         this.ubicacion= ubicacion;
     }
-    
-    
-    
 
     public Ubicacion getUbicacion() {
         return ubicacion;
     }
-    
-    
-    
     
     public Image getSprite() {
         return sprite;

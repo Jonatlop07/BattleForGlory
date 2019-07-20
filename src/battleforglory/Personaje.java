@@ -4,6 +4,7 @@ package battleforglory;
 import javafx.scene.canvas.GraphicsContext;
 
 public abstract class Personaje extends Objeto {
+    protected double vida=100.0;
     protected double gravedad =700.0, fuerzaX, fuerzaY, masa= 10.0, tiempo=1.0/60.0;
     protected double aceleracionX, aceleracionY, velocidadX, velocidadY;
     protected double aceleracionMaxima, fuerzaCorriendo;
@@ -107,4 +108,17 @@ public abstract class Personaje extends Objeto {
         }
         return (velocidad>0?700:-700);
     }
+
+    public double getVida() {
+        return vida;
+    }
+
+    public void setVida(double vida) {
+        this.vida = vida;
+    }
+    
+    public void Atacar(){
+        
+    }
+    
 }

@@ -15,6 +15,7 @@ public class Juego extends Application{
     public static void main(String[] args) {
         Application.launch(args);
         
+        
     }
 
     @Override
@@ -38,3 +39,4 @@ public class Juego extends Application{
         return alto;
     }
 }
+    

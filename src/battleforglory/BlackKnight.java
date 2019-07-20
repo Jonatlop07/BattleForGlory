@@ -34,6 +34,14 @@ public class BlackKnight extends Personaje {
         
     }
 
+    public Image[][] getSpritesDerecha() {
+        return spritesDerecha;
+    }
+
+    public Image[][] getSpritesIzquierda() {
+        return spritesIzquierda;
+    }
+    
 
     
 }

@@ -22,7 +22,7 @@ public class ElementoMapa extends Objeto {
     @Override
     public void dibujar(GraphicsContext lapiz) {
         
-        lapiz.setFill(Color.RED);
+        lapiz.setFill(Color.TRANSPARENT);
         
         lapiz.fillRect(this.ubicacion.getPosicionX(), this.ubicacion.getPosicionY()
                 ,this.ubicacion.getAncho(), this.ubicacion.getAlto());

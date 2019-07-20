@@ -34,4 +34,13 @@ public class BronzeKnight extends Personaje{
     @Override
     public void dibujar(GraphicsContext lapiz) {
     }
+
+    public Image[][] getSpritesDerecha() {
+        return spritesDerecha;
+    }
+
+    public Image[][] getSpritesIzquierda() {
+        return spritesIzquierda;
+    }
+    
 }
