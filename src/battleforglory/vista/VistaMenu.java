@@ -27,7 +27,7 @@ public class VistaMenu {
     
     private final Image bgImage = new Image("file:src//battleforglory//image//fondoMenu.png");
     private final Image butIM = new Image("file:src//battleforglory//image//play.png");
-    private final Image butO = new Image("file:src//battleforglory//image//setting.png");
+   // private final Image butO = new Image("file:src//battleforglory//image//setting.png");
     private final Image butS = new Image("file:src//battleforglory//image//exit.png");
     public VistaMenu(){
         Pane layoutMenu = new Pane();
@@ -35,10 +35,10 @@ public class VistaMenu {
         btnJugar.setBackground(Background.EMPTY);
         btnJugar.setGraphic(new ImageView(butIM));
         btnJugar.setStyle("-fx-font-family: 'Copperplate Gothic Light'; -fx-font-size: 22;");
-        btnAjustes = new Button("Ajustes");
-        btnAjustes.setBackground(Background.EMPTY);
-        btnAjustes.setGraphic(new ImageView(butO));
-        btnAjustes.setStyle("-fx-font-family: 'Copperplate Gothic Light'; -fx-font-size: 22;");
+       // btnAjustes = new Button("Ajustes");
+       // btnAjustes.setBackground(Background.EMPTY);
+       // btnAjustes.setGraphic(new ImageView(butO));
+      //  btnAjustes.setStyle("-fx-font-family: 'Copperplate Gothic Light'; -fx-font-size: 22;");
         btnCreditos = new Button("Salir");
         btnCreditos.setBackground(Background.EMPTY);
         btnCreditos.setGraphic(new ImageView(butS));
@@ -48,8 +48,8 @@ public class VistaMenu {
         
         btnJugar.setLayoutX(620);
         btnJugar.setLayoutY(350);
-        btnAjustes.setLayoutX(620);
-        btnAjustes.setLayoutY(430);
+   //     btnAjustes.setLayoutX(620);
+    //    btnAjustes.setLayoutY(430);
         btnCreditos.setLayoutX(620);
         btnCreditos.setLayoutY(510);
         
@@ -61,7 +61,7 @@ public class VistaMenu {
         layoutMenu.setBackground(new Background(myBI));
         
         layoutMenu.getChildren().add(btnJugar);
-        layoutMenu.getChildren().add(btnAjustes);
+       // layoutMenu.getChildren().add(btnAjustes);
         layoutMenu.getChildren().add(btnCreditos);
         
         escena = new Scene(layoutMenu, 1400,700);
@@ -80,7 +80,7 @@ public class VistaMenu {
                     btnJugar.setEffect(null);
                 }
         });
-
+/*
         btnAjustes.addEventHandler(MouseEvent.MOUSE_ENTERED, 
             new EventHandler<MouseEvent>() {
                 @Override public void handle(MouseEvent e) {
@@ -94,7 +94,7 @@ public class VistaMenu {
                     btnAjustes.setEffect(null);
                 }
         });
-        
+ */       
         btnCreditos.addEventHandler(MouseEvent.MOUSE_ENTERED, 
             new EventHandler<MouseEvent>() {
                 @Override public void handle(MouseEvent e) {
@@ -117,11 +117,11 @@ public class VistaMenu {
     public Button getBtnJugar(){
         return btnJugar;
     }
-    
+ /*   
     public Button getBtnAjustes(){
         return btnAjustes;
     }
-    
+  */  
     public Button getBtnCreditos(){
         return btnCreditos;
     }

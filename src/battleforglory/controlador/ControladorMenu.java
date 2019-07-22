@@ -19,6 +19,7 @@ public class ControladorMenu {
     public ControladorMenu(){
         this.vistaMenu = new VistaMenu();
         this.vistaMenu.getBtnJugar().setOnAction(new EventoJugar());
+        this.vistaMenu.getBtnCreditos().setOnAction(new EventoSalir());
     }
     
     public VistaMenu getVistaMenu(){
@@ -43,6 +44,12 @@ public class ControladorMenu {
             primaryStage.setScene(scene);
             primaryStage.setTitle("Battle For Glory");
             primaryStage.show();
+        }
+    }
+    private class EventoSalir implements EventHandler<ActionEvent>{
+         @Override
+        public void handle(ActionEvent event) {
+            System.exit(0);
         }
     }
 }
